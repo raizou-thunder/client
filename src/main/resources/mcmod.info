@@ -1,16 +1,18 @@
 [
-{
-  "modid": "raizouclient",
-  "name": "Raizou Client",
-  "description": "minecraft client made by raizou",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "https://github.com/raizou-thunder/client",
-  "updateUrl": "",
-  "authorList": ["らいぞう"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid": "raizouclient",
+    "name": "Raizou Client",
+    "description": "minecraft client made by raizou",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://github.com/raizou-thunder/client",
+    "updateUrl": "",
+    "authorList": [
+      "らいぞう"
+    ],
+    "credits": "The Forge and FML guys, for making this example",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
 ]

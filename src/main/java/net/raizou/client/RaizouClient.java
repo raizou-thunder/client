@@ -7,39 +7,34 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.raizou.client.events.PlayerKeyInputEvent;
 import net.raizou.client.events.PlayerTickEvent;
+import net.raizou.client.modules.ModuleManager;
 import net.raizou.client.ui.ArrayList;
 import net.raizou.client.ui.Hud;
-import net.raizou.client.modules.ModuleManager;
 import net.raizou.client.ui.HudGui;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.Display;
 
 @Mod(modid = RaizouClient.MODID, name = RaizouClient.NAME, version = RaizouClient.VERSION)
-public class RaizouClient
-{
+public class RaizouClient {
     public static final String MODID = "raizouclient";
-    public static final String NAME = "Raizou Client";
+    public static final String NAME = "RaizouClient";
     public static final String VERSION = "1.0";
-
-    private static Logger logger;
-
     public static ModuleManager module = new ModuleManager();
+    public static HudGui hudGui = new HudGui();
+    private static Logger logger;
     public PlayerKeyInputEvent playerKeyInputEvent = new PlayerKeyInputEvent();
     public PlayerTickEvent playerTickEvent = new PlayerTickEvent();
     public Hud hud = new Hud();
-    public static HudGui hudGui = new HudGui();
     public ArrayList arrayList = new ArrayList();
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
+    public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         System.out.print("preInit");
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
+    public void init(FMLInitializationEvent event) {
         Display.setTitle(NAME + " " + VERSION);
         System.out.print("init");
 

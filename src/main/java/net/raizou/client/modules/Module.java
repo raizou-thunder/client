@@ -1,19 +1,18 @@
 package net.raizou.client.modules;
 
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.common.MinecraftForge;
 
 public class Module {
-    Minecraft minecraft = Minecraft.getMinecraft();
+    protected Minecraft minecraft = Minecraft.getMinecraft();
 
     public String name;
     public Category category;
     public boolean istoggled;
     public int keybind;
 
-    public Module(String name, Category category, int keybind)
-    {
+    public Module(String name, Category category, int keybind) {
         super();
         this.name = name;
         this.category = category;
@@ -21,29 +20,30 @@ public class Module {
         this.istoggled = false;
     }
 
-    public void Enable()
-    {
+    public void Enable() {
         MinecraftForge.EVENT_BUS.register(this);
         minecraft.player.sendMessage(new TextComponentString("[RaizouClient] " + this.name + " Enabled"));
     }
 
-    public void Disable()
-    {
+    public void Disable() {
         MinecraftForge.EVENT_BUS.unregister(this);
         minecraft.player.sendMessage(new TextComponentString("[RaizouClient] " + this.name + " Disabled"));
     }
 
-    public void onEnable(){}
-    public void onDisable(){}
-    public void onUpdate() {}
+    public void onEnable() {
+    }
 
-    public void toggle()
-    {
-        if(istoggled) {
+    public void onDisable() {
+    }
+
+    public void onUpdate() {
+    }
+
+    public void toggle() {
+        if (istoggled) {
             onDisable();
             Disable();
-        }
-        else {
+        } else {
             Enable();
             onEnable();
         }
@@ -53,6 +53,7 @@ public class Module {
     public String getName() {
         return this.name;
     }
+
     public int getNameLength() {
         return this.name.length();
     }
