@@ -1,4 +1,4 @@
-package net.raizou.client.modules;
+package net.raizou.client.client.module.modules;
 
 public enum Category {
     COMBAT,

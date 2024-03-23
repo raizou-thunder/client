@@ -1,11 +1,11 @@
-package net.raizou.client.ui;
+package net.raizou.client.client.ui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.raizou.client.RaizouClient;
+import net.raizou.client.client.RaizouClient;
 
 import java.awt.*;
 import java.util.Random;

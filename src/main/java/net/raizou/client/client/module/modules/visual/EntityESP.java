@@ -1,8 +1,10 @@
-package net.raizou.client.modules.visual;
+package net.raizou.client.client.module.modules.visual;
 
 import net.minecraft.entity.Entity;
-import net.raizou.client.modules.Category;
-import net.raizou.client.modules.Module;
+import net.raizou.client.client.module.modules.Category;
+import net.raizou.client.client.module.modules.Module;
+
+import static net.raizou.client.client.RaizouClient.mc;
 
 public class EntityESP extends Module {
     public EntityESP() {
@@ -11,14 +13,14 @@ public class EntityESP extends Module {
 
     @Override
     public void onDisable() {
-        for(Entity entity : minecraft.world.loadedEntityList) {
+        for(Entity entity : mc.world.loadedEntityList) {
             entity.setGlowing(false);
         }
     }
 
     @Override
     public void onUpdate() {
-        for(Entity entity : minecraft.world.loadedEntityList) {
+        for(Entity entity : mc.world.loadedEntityList) {
             entity.setGlowing(true);
         }
     }

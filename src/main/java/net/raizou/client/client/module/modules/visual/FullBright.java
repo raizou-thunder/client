@@ -1,9 +1,8 @@
-package net.raizou.client.modules.visual;
+package net.raizou.client.client.module.modules.visual;
 
 import net.minecraft.client.Minecraft;
-import net.raizou.client.modules.Category;
-import net.raizou.client.modules.Module;
-import org.lwjgl.input.Keyboard;
+import net.raizou.client.client.module.modules.Category;
+import net.raizou.client.client.module.modules.Module;
 
 public class FullBright extends Module {
     Minecraft minecraft = Minecraft.getMinecraft();

@@ -1,0 +1,6 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "package": "net.raizou.client.mixin.mixins",
+  "mixins": [
+  ]
+}

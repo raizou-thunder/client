@@ -1,10 +1,10 @@
-package net.raizou.client.events;
+package net.raizou.client.client.events;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.raizou.client.RaizouClient;
-import net.raizou.client.modules.Module;
+import net.raizou.client.client.RaizouClient;
+import net.raizou.client.client.module.modules.Module;
 
 public class PlayerTickEvent {
     @SubscribeEvent
