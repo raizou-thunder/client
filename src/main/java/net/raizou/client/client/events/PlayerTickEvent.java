@@ -11,7 +11,7 @@ public class PlayerTickEvent {
     public void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.START) return;
         if (event.player != Minecraft.getMinecraft().player) return;
-        for (Module module : RaizouClient.module.modules) {
+        for (Module module : RaizouClient.moduleManager.modules) {
             if (module.istoggled) {
                 module.onUpdate();
             }

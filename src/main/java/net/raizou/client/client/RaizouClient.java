@@ -12,6 +12,7 @@ import net.raizou.client.client.module.modules.ModuleManager;
 import net.raizou.client.client.ui.ArrayList;
 import net.raizou.client.client.ui.Hud;
 import net.raizou.client.client.ui.HudGui;
+import net.raizou.client.client.command.CommandManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.Display;
 
@@ -21,13 +22,15 @@ public class RaizouClient {
     public static final String MODID = "raizouclient";
     public static final String NAME = "RaizouClient";
     public static final String VERSION = "1.0";
-    public static ModuleManager module = new ModuleManager();
+    public static ModuleManager moduleManager = new ModuleManager();
     public static HudGui hudGui = new HudGui();
+    public static RaizouClient instance = new RaizouClient();
     private static Logger logger;
     public PlayerKeyInputEvent playerKeyInputEvent = new PlayerKeyInputEvent();
     public PlayerTickEvent playerTickEvent = new PlayerTickEvent();
     public Hud hud = new Hud();
     public ArrayList arrayList = new ArrayList();
+    public CommandManager commandManager = new CommandManager();
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -46,5 +49,6 @@ public class RaizouClient {
         MinecraftForge.EVENT_BUS.register(hud);
         MinecraftForge.EVENT_BUS.register(hudGui);
         MinecraftForge.EVENT_BUS.register(arrayList);
+        MinecraftForge.EVENT_BUS.register(commandManager);
     }
 }

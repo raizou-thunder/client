@@ -1,6 +1,7 @@
 package net.raizou.client.client.events;
 
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.raizou.client.client.RaizouClient;
@@ -9,10 +10,11 @@ import org.lwjgl.input.Keyboard;
 
 public class PlayerKeyInputEvent {
     @SubscribeEvent
-    public void toggle(InputEvent event) {
-        if (Minecraft.getMinecraft().player == null || Minecraft.getMinecraft().world == null) return;
-        if (Keyboard.isCreated() && Keyboard.getEventKeyState()) {
-            int key = Keyboard.getEventKey();
+    public void toggle(InputEvent.KeyInputEvent event) {
+        int key = Keyboard.getEventKey();
+
+        if (Minecraft.getMinecraft().player == null || Minecraft.getMinecraft().world == null || key == Keyboard.KEY_NONE) return;
+        if (!Keyboard.getEventKeyState()) {
             //HudGui
             if (Keyboard.KEY_UP == key) {
                 RaizouClient.hudGui.up();
@@ -22,8 +24,7 @@ public class PlayerKeyInputEvent {
                 RaizouClient.hudGui.toggle();
             }
 
-            //Module Keybind
-            for (Module module : RaizouClient.module.modules) {
+            for (Module module : RaizouClient.moduleManager.modules) {
                 if (module.keybind == key) {
                     module.toggle();
                     return;

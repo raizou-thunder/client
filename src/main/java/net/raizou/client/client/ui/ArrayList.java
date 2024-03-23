@@ -22,11 +22,11 @@ public class ArrayList extends GuiScreen {
         FontRenderer renderer = minecraft.fontRenderer;
 
         if (event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {
-            RaizouClient.module.modules.sort(Comparator.comparingInt(Module::getNameLength).thenComparing(Module::getName));
-            Collections.reverse(RaizouClient.module.modules);
+            RaizouClient.moduleManager.modules.sort(Comparator.comparingInt(Module::getNameLength).thenComparing(Module::getName));
+            Collections.reverse(RaizouClient.moduleManager.modules);
 
             int y = 1;
-            for (Module module : RaizouClient.module.modules) {
+            for (Module module : RaizouClient.moduleManager.modules) {
                 if (module.istoggled) {
                     renderer.drawString(module.name, resolution.getScaledWidth() - renderer.getStringWidth(module.name), y, Color.WHITE.getRGB(), true);
                     y += renderer.FONT_HEIGHT + 1;

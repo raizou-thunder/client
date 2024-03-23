@@ -20,8 +20,8 @@ public class HudGui extends GuiScreen {
 
         if (event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {
             int y = renderer.FONT_HEIGHT + 1;
-            for (Module module : RaizouClient.module.modules) {
-                if (module.name.equals(RaizouClient.module.modules.get(selectModuleId).name)) {
+            for (Module module : RaizouClient.moduleManager.modules) {
+                if (module.name.equals(RaizouClient.moduleManager.modules.get(selectModuleId).name)) {
                     renderer.drawString("> " + module.name, 2, y, Color.WHITE.getRGB(), true);
                 } else {
                     renderer.drawString(module.name, 2, y, Color.WHITE.getRGB(), true);
@@ -33,14 +33,14 @@ public class HudGui extends GuiScreen {
 
     public void up() {
         if (selectModuleId <= 0) {
-            selectModuleId = (RaizouClient.module.modules.size() - 1);
+            selectModuleId = (RaizouClient.moduleManager.modules.size() - 1);
         } else {
             selectModuleId -= 1;
         }
     }
 
     public void down() {
-        if (selectModuleId >= (RaizouClient.module.modules.size() - 1)) {
+        if (selectModuleId >= (RaizouClient.moduleManager.modules.size() - 1)) {
             selectModuleId = 0;
         } else {
             selectModuleId += 1;
@@ -48,6 +48,6 @@ public class HudGui extends GuiScreen {
     }
 
     public void toggle() {
-        RaizouClient.module.modules.get(selectModuleId).toggle();
+        RaizouClient.moduleManager.modules.get(selectModuleId).toggle();
     }
 }

@@ -26,9 +26,9 @@ public class Flight extends Module {
         switch (mode.currentMode) {
             case "Motion":
                 //上下
-                if (mc.gameSettings.keyBindJump.isKeyDown()) {
+                if (mc.gameSettings.keyBindJump.isKeyDown() && !mc.gameSettings.keyBindSneak.isKeyDown()) {
                     mc.player.motionY = vSpeed.currentValue;
-                } else if (mc.gameSettings.keyBindSneak.isKeyDown()) {
+                } else if (mc.gameSettings.keyBindSneak.isKeyDown() && !mc.gameSettings.keyBindJump.isKeyDown()) {
                     mc.player.motionY = -vSpeed.currentValue;
                 } else {
                     mc.player.motionY = 0;

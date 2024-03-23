@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.common.MinecraftForge;
 import net.raizou.client.client.module.setting.*;
+import net.raizou.client.client.utils.minecraft.ChatUtils;
 
 import java.util.ArrayList;
 
@@ -21,18 +22,13 @@ public class Module {
         this.name = name;
         this.category = category;
         this.keybind = keybind;
-        this.istoggled = false;
         this.settings = new ArrayList();
     }
 
     public void Enable() {
-        MinecraftForge.EVENT_BUS.register(this);
-        mc.player.sendMessage(new TextComponentString("[RaizouClient] " + this.name + " Enabled"));
     }
 
     public void Disable() {
-        MinecraftForge.EVENT_BUS.unregister(this);
-        mc.player.sendMessage(new TextComponentString("[RaizouClient] " + this.name + " Disabled"));
     }
 
     public void onEnable() {
@@ -45,14 +41,17 @@ public class Module {
     }
 
     public void toggle() {
-        if (istoggled) {
-            onDisable();
-            Disable();
-        } else {
-            Enable();
-            onEnable();
-        }
         istoggled = !istoggled;
+
+        if (!istoggled) {
+            onDisable();
+            MinecraftForge.EVENT_BUS.unregister(this);
+            ChatUtils.addChatMessageWithWaterMark(this.name + " Disabled");
+        } else {
+            onEnable();
+            MinecraftForge.EVENT_BUS.register(this);
+            ChatUtils.addChatMessageWithWaterMark(this.name + " Enabled");
+        }
     }
 
     public String getName() {
