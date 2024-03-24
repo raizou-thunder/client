@@ -3,6 +3,7 @@ package net.raizou.client.client.module.modules;
 import net.raizou.client.client.module.modules.movement.Flight;
 import net.raizou.client.client.module.modules.movement.Sprint;
 import net.raizou.client.client.module.modules.none.TestModule;
+import net.raizou.client.client.module.modules.player.AutoRespawn;
 import net.raizou.client.client.module.modules.visual.EntityESP;
 import net.raizou.client.client.module.modules.visual.FullBright;
 import net.raizou.client.client.module.modules.visual.Zoom;
@@ -19,5 +20,6 @@ public class ModuleManager {
         modules.add(new Sprint());
         modules.add(new TestModule());
         modules.add(new FullBright());
+        modules.add(new AutoRespawn());
     }
 }

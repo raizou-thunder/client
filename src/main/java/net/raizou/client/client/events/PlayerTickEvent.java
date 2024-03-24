@@ -1,6 +1,7 @@
 package net.raizou.client.client.events;
 
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.raizou.client.client.RaizouClient;
@@ -15,6 +16,15 @@ public class PlayerTickEvent {
             if (module.istoggled) {
                 module.onUpdate();
             }
+        }
+    }
+
+    public void onEvent(ClientEvent e) {
+        if (Minecraft.getMinecraft().player == null)
+            return;
+        for (Module m : RaizouClient.moduleManager.modules) {
+            if (m.istoggled)
+                m.onEvent(e);
         }
     }
 }

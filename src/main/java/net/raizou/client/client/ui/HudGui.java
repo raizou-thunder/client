@@ -7,6 +7,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.raizou.client.client.RaizouClient;
 import net.raizou.client.client.module.modules.Module;
+import net.raizou.client.client.utils.minecraft.RenderUtils;
 
 import java.awt.*;
 

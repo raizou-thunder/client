@@ -50,5 +50,6 @@ public class RaizouClient {
         MinecraftForge.EVENT_BUS.register(hudGui);
         MinecraftForge.EVENT_BUS.register(arrayList);
         MinecraftForge.EVENT_BUS.register(commandManager);
+        MinecraftForge.EVENT_BUS.register(moduleManager);
     }
 }

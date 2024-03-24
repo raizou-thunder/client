@@ -3,6 +3,8 @@ package net.raizou.client.client.module.modules;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.raizou.client.client.events.ClientEvent;
 import net.raizou.client.client.module.setting.*;
 import net.raizou.client.client.utils.minecraft.ChatUtils;
 
@@ -38,6 +40,9 @@ public class Module {
     }
 
     public void onUpdate() {
+    }
+
+    public void onEvent(ClientEvent e) {
     }
 
     public void toggle() {

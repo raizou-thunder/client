@@ -4,6 +4,8 @@
   "mixins": [
   ],
   "client": [
+    "MixinEntityPlayerSP",
+    "MixinGuiIngame",
     "MixinMinecraft"
   ]
 }
